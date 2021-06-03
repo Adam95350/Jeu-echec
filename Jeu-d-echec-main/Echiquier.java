@@ -53,7 +53,7 @@ public class Echiquier{
     	c == cases([c.getLigne()][c.getColonne()], p) ; // la case en parametre devient elle meme + la piece "p"
     }
 
-   /* public void ajouterPiece(p: Piece, c: Case){
+    /* public void ajouterPiece(p: Piece, c: Case){
     	this.cases[c.getLigne()][c.getColonne()].ajouterPiece(p) ; // ici on utilise la methode ajouterPiece alors 
     	p.setCase(this.cases[c.getLigne()][c.getColonne()]) ;      // qu'on l'a pas encore définie.
     															   // ici j'ai pas compris l'utilité de setCase.

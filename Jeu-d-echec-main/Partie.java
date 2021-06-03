@@ -4,7 +4,7 @@ public class Partie {
     }
 
     public boolean ValidationCoup(){
-
+    	
     }
 
     public void gererFinPartie(){
