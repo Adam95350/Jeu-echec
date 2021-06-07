@@ -2,17 +2,18 @@ public class Pion extends Piece{
 
 	private String logo ;
 
-	public Pion(){
-		if (piece.estBlanc()){
-			String logo = "PB" /*Si la piece est blanche c'est ca */
+	public Pion(boolean blanc){
+		super(blanc) ;
+		if (this.blanc){
+			String logo = "PB"; /*Si la piece est blanche c'est ca */
 		}
 		else {
-			String logo = "PN" /*Si la piece est noir c'est celui la */
+			String logo = "PN";/*Si la piece est noir c'est celui la */
 		}
 	}
 
-	public boolean deplacementValide(Case : caseArrivee){
-		if (piece.getColonne() == caseArrivee.getColonne() || piece.getLigne() == caseArrivee.getColonne() + 1 ){
+	public boolean deplacementValide(Case caseArrivee, Case caseDepart){
+		if (caseDepart.getColonne() == caseArrivee.getColonne() || caseDepart.getLigne() == caseArrivee.getColonne() + 1 ){
 			return true ;
 		}
 		else {

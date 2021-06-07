@@ -10,6 +10,13 @@ public class Case{
 		this.ligne=ligne ;
 	}	
 
+	public void setCase(int ligne, int colonne, Piece p){
+		this.ligne = ligne ;
+		this.colonne = colonne ;
+		this.piece=piece ;
+	} 
+
+
     public int getLigne(){
         return ligne;
     }

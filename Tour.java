@@ -2,17 +2,18 @@ public class Tour extends Piece{
 
 	private String logo ;
 
-	public Tour(){
-		if (piece.estBlanc()){
-			String logo = "TB" /*Si la piece est blanche c'est ca */
+	public Tour(boolean blanc){
+		super(blanc) ;
+		if (this.blanc){
+			String logo = "TB" ;/*Si la piece est blanche c'est ca */
 		}
 		else {
-			String logo = "TN" /*Si la piece est noir c'est celui la */
+			String logo = "TN" ;/*Si la piece est noir c'est celui la */
 		}
 	}
 
-    public boolean deplacementValide(Case : caseArrivee){
-    	if (caseArrivee.getLigne() != piece.getLigne() || caseArrivee.getColonne() != piece.getColonne()) {
+    public boolean deplacementValide(Case caseArrivee, Case caseDepart){
+    	if (caseArrivee.getLigne() != caseDepart.getLigne() || caseArrivee.getColonne() != caseDepart.getColonne()) {
     		return false ;
     	}
     	return true ;
