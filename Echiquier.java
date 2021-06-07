@@ -1,11 +1,17 @@
 public class Echiquier{
 
 	private Case[][] cases ;
+	private Arraylist<Piece> pieceNoire ;
+	private Arraylist<Piece> pieceBlanche ;
+
 
 
 	public Echiquier(){
 		cases = new Case[8][8] ;
+		this.pieceNoire = new Arraylist<Piece>() ;
+		this.pieceBlanche = new Arraylist<Piece>() ;
 		cases[0][0] = new Case(0,0,new Tour(true));  /*Tour blanche (true = blanc), ligne 0, colonne 0 */
+		this.pieceBlanche.add(new Tour(true));
 		cases[0][1] = new Case(0,1,new Cavalier(true)); /*ect.. ect.. */
 		cases[0][2] = new Case(0,2,new Fou(true));
 		cases[0][3] = new Case(0,3,new Reine(true));
@@ -44,25 +50,50 @@ public class Echiquier{
 
 		for (int ligne = 2; ligne < 6; ligne++){  /* ligne et colonne vide */
 			for (int colonne = 0; colonne < 8; colonne++) {
-				case[ligne][colonne] = new Case(ligne,colonne, null);
+				cases[ligne][colonne] = new Case(ligne,colonne, null);
 			}
 		}
 	}
 
-    public void ajouterPiece(p: Piece, c: Case){
-    	c == cases([c.getLigne()][c.getColonne()], p) ; // la case en parametre devient elle meme + la piece "p"
-    }
+		public void afficher() {
+		for(int ligne = 7 ; ligne >= 0 ; ligne--) {
+			System.out.println(" -------------------------");
+			System.out.print(ligne + 1);
+			for(int colonne = 0 ; colonne < 8 ; colonne++) {
+				if(!cases[ligne][colonne].estVide()) 
+					System.out.print("|"+ cases[ligne][colonne].getPiece().getLogo());
+				else 
+					System.out.print("|  ");
+				}
+			System.out.print("|");
+			System.out.print("\n");
+			}
+		System.out.println(" -------------------------");
+		System.out.println("  A  B  C  D  E  F  G  H");
+		}
 
-    /* public void ajouterPiece(p: Piece, c: Case){
-    	this.cases[c.getLigne()][c.getColonne()].ajouterPiece(p) ; // ici on utilise la methode ajouterPiece alors 
+
+    /*public void ajouterPiece(p: Piece, c: Case){
+    	c == cases([c.getLigne()][c.getColonne()], p) ; // la case en parametre devient elle meme + la piece "p"
+    } */
+
+     public void ajouterPiece(Piece p, Case c){
+    	this.cases[c.getLigne()][c.getColonne()].setCase(c.getLigne(), c.getColonne(), p) ; // ici on utilise la methode ajouterPiece alors 
     	p.setCase(this.cases[c.getLigne()][c.getColonne()]) ;      // qu'on l'a pas encore définie.
     															   // ici j'ai pas compris l'utilité de setCase.
-    } OPTIONNEL /!\ */
-
-    public Piece supprimerPiece(c: Case){
-        c == cases([c.getLigne()][c.getColonne()], null) ; // la case en paramete devient elle meme avec piece == null (sans piece)
     }
 
+    public Case supprimerPiece(Case c){
+        //c = cases([c.getLigne()][c.getColonne()], null) ; // la case en paramete devient elle meme avec piece == null (sans piece)
+    	c = new Case(c.getLigne(), c.getColonne(), null) ;
+    	return c ;
+    }
 
-
+    public static void main(String[] args) {
+    	Echiquier e = new Echiquier() ;
+    	e.afficher();	
+    }
 }
+
+
+

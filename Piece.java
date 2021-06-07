@@ -1,13 +1,13 @@
 import java.lang.Math;
 
 
-public class Piece {
+public abstract class Piece {
     
-	private boolean blanc ;
-	private abstract String logo ;  /* a definir dans chaque classe de piece */
-	private Case cases
+	protected boolean blanc ;
+	protected String logo ;  /* a definir dans chaque classe de piece */
+	protected Case cases ;
 
-	public piece(boolean blanc){
+	public Piece(boolean blanc){
 		this.blanc = blanc ; // "blanc" en attribut prend le "blanc" en paramettre
 	}
 
@@ -20,11 +20,11 @@ public class Piece {
 	}
 
 	public String getLogo() {
-		return this.logo;
+		return this.logo ;
 	}
 
 	public void setLogo(String logo) {
-		this.logo = logo;
+		this.logo = logo ;
 	}
 
     public Case getCase(){
@@ -35,5 +35,5 @@ public class Piece {
     	this.cases = cases ;
     }
 
-    public abstract boolean deplacementValide(Case: caseArrivee){}
+    public abstract boolean deplacementValide(Case caseArrivee, Case caseDepart) ;
 }
